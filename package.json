@@ -10,20 +10,30 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:general-components.helloWorld"
+    "onCommand:general-components.createWebComponent",
+    "onCommand:general-components.createMobileComponent"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "general-components.helloWorld",
-        "title": "Hello World"
+        "command": "general-components.createWebComponent",
+        "title": "React: Create Web Component"
+      },
+      {
+        "command": "general-components.createMobileComponent",
+        "title": "React: Create Mobile Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "general-components.helloWorld",
+          "command": "general-components.createWebComponent",
+          "group": "componentsGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "general-components.createMobileComponent",
           "group": "componentsGroup@1",
           "when": "explorerResourceIsFolder"
         }
@@ -40,6 +50,8 @@
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
+    "@types/lodash": "^4.14.191",
+    "@types/mkdirp": "^1.0.2",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.74.0",
@@ -47,5 +59,9 @@
     "mocha": "^10.1.0",
     "prettier": "2.8.3",
     "typescript": "*"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mkdirp": "^2.1.3"
   }
 }

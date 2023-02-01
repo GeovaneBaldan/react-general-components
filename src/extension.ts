@@ -1,17 +1,17 @@
 import * as vscode from 'vscode'
+import { createComponent } from './commands/createComponent'
 
 // This method is called when your extension is activated
-export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
-    'general-components.helloWorld',
-    () => {
-      vscode.window.showInformationMessage(
-        'Hello World from general-components!'
-      )
-    }
+export function activate(_context: vscode.ExtensionContext) {
+  vscode.commands.registerCommand(
+    'general-components.createWebComponent',
+    (uri: vscode.Uri) => createComponent(uri, 'web')
   )
 
-  context.subscriptions.push(disposable)
+  vscode.commands.registerCommand(
+    'general-components.createMobileComponent',
+    (uri: vscode.Uri) => createComponent(uri, 'mobile')
+  )
 }
 
 // This method is called when your extension is deactivated

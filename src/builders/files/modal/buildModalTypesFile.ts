@@ -7,7 +7,7 @@ export async function buildModalTypesFile(
   componentName: string,
   targetDirectory: string
 ) {
-  const targetPath = `${targetDirectory}/${componentName}/index.tsx`
+  const targetPath = `${targetDirectory}/${componentName}/types.ts`
 
   if (existsSync(targetPath)) {
     throw Error(`[Modal-Types] ${componentName} already exists in this path.`)

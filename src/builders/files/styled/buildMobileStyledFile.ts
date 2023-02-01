@@ -7,7 +7,7 @@ export async function buildMobileStyledFile(
   componentName: string,
   targetDirectory: string
 ) {
-  const targetPath = `${targetDirectory}/${componentName}/index.tsx`
+  const targetPath = `${targetDirectory}/${componentName}/styles.ts`
 
   if (existsSync(targetPath)) {
     throw Error(`[Styled] ${componentName} already exists in this path.`)

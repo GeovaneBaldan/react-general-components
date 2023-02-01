@@ -7,7 +7,7 @@ export async function buildHookFile(
   componentName: string,
   targetDirectory: string
 ) {
-  const targetPath = `${targetDirectory}/${componentName}/index.tsx`
+  const targetPath = `${targetDirectory}/${componentName}/index.ts`
 
   if (existsSync(targetPath)) {
     throw Error(`[Hook] ${componentName} already exists in this path.`)
