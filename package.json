@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/GeovaneBaldan/react-general-components"
   },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.74.0"
   },
