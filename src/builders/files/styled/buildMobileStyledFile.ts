@@ -1,7 +1,7 @@
 import { existsSync } from 'fs'
 import { writeFile } from 'fs/promises'
 
-import { getStyledMobileTemplate } from '../../templates/styled'
+import { getStyledMobileTemplate } from '../../../templates/styled'
 
 export async function buildMobileStyledFile(
   componentName: string,

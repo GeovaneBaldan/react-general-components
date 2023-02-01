@@ -1,20 +1,20 @@
 import { existsSync } from 'fs'
 import { writeFile } from 'fs/promises'
 
-import { getModalTypesTemplate } from '../../templates/modal'
+import { getComponentTemplate } from '../../../templates/component'
 
-export async function buildModalTypesFile(
+export async function buildComponentFile(
   componentName: string,
   targetDirectory: string
 ) {
   const targetPath = `${targetDirectory}/${componentName}/index.tsx`
 
   if (existsSync(targetPath)) {
-    throw Error(`[Modal-Types] ${componentName} already exists in this path.`)
+    throw Error(`[Component] ${componentName} already exists in this path.`)
   }
 
   try {
-    const template = getModalTypesTemplate(componentName)
+    const template = getComponentTemplate(componentName)
     await writeFile(targetPath, template, { encoding: 'utf-8' })
   } catch (error) {
     throw error

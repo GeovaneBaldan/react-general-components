@@ -1,7 +1,7 @@
 import { existsSync } from 'fs'
 import { writeFile } from 'fs/promises'
 
-import { getHookTypesTemplate } from '../../templates/hook'
+import { getHookTypesTemplate } from '../../../templates/hook'
 
 export async function buildHookTypesFile(
   componentName: string,
