@@ -1,8 +1,13 @@
 {
   "name": "general-components",
-  "displayName": "general-components",
+  "displayName": "React General Components",
   "description": "Aliases for general react components",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "GeovaneBaldan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GeovaneBaldan/react-general-components"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -46,7 +51,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "publish": "vsce publish --yarn",
+    "build": "vsce package --yarn"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
