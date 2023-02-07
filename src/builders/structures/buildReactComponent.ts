@@ -4,13 +4,14 @@ import {
   buildComponentFile,
   buildWebStyledFile,
   buildMobileStyledFile
-} from '../../files'
-import { createDirectory } from '../../../fs-utilities'
+} from '../files'
+import { createDirectory } from '../../fs-utilities'
+import { ComponentTypes } from '../../constants/componentTypes'
 
 export async function buildReactComponent(
   componentName: string,
   targetDirectory: string,
-  type: 'mobile' | 'web'
+  type: ComponentTypes
 ) {
   if (!existsSync(`${targetDirectory}/${componentName}`)) {
     await createDirectory(`${targetDirectory}/${componentName}`)
@@ -18,7 +19,7 @@ export async function buildReactComponent(
 
   await buildComponentFile(componentName, targetDirectory)
 
-  if (type === 'mobile')
+  if (type === ComponentTypes.MOBILE)
     await buildMobileStyledFile(componentName, targetDirectory)
   else await buildWebStyledFile(componentName, targetDirectory)
 }

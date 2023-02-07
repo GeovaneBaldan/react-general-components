@@ -1,23 +1,19 @@
-import { Uri, window } from 'vscode'
+import { window } from 'vscode'
 
 import { isNameValid } from '../validators'
 import { capitalize, parseError } from '../utils'
 import { promptForFeatureName } from '../prompts'
-import { getSelectedDirectoryPath } from '../fs-utilities/getSelectedDirectoryPath'
-import { buildReactComponent } from '../builders/structures/component/buildReactComponent'
+import { ComponentTypes } from '../constants/componentTypes'
+import { buildReactComponent } from '../builders/structures/buildReactComponent'
 
-export async function createComponent(uri: Uri, type: 'web' | 'mobile') {
+export async function createComponent(
+  targetDirectory: string,
+  type: ComponentTypes
+) {
   const componentName = await promptForFeatureName()
-  let targetDirectory = ''
 
   if (!isNameValid(componentName)) {
     return window.showErrorMessage('The name must not be empty')
-  }
-
-  try {
-    targetDirectory = await getSelectedDirectoryPath(uri)
-  } catch (err) {
-    window.showErrorMessage(parseError(err))
   }
 
   try {
