@@ -1,5 +1,5 @@
-import { ComponentTypes } from '../../constants/componentTypes'
 import { buildHook } from './buildHook'
+import { ComponentTypes } from '../../constants/componentTypes'
 import { buildReactComponent } from './buildReactComponent'
 
 export async function buildHookComponent(

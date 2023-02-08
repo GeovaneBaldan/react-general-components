@@ -1,7 +1,7 @@
 import { existsSync } from 'fs'
-import { window } from 'vscode'
-import { createDirectory } from '../../fs-utilities'
+
 import { formatHookName } from '../../utils'
+import { createDirectory } from '../../fs-utilities'
 import { buildHookFile, buildHookTypesFile } from '../files'
 
 export async function buildHook(

@@ -32,7 +32,7 @@ async function handleStructureSelection(selection: string, target: string) {
     case Structures.HOOK:
       return createHook(target)
     case Structures.CONTEXT:
-      return createContext()
+      return createContext(target)
     case Structures.DEFAULT_COMPONENT:
       return handleCreateComponent(target, Structures.DEFAULT_COMPONENT)
     case Structures.HOOK_COMPONENT:
