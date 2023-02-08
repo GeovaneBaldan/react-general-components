@@ -1,24 +1,24 @@
 import { window } from 'vscode'
 
+import { parseError } from '../utils'
 import { isNameValid } from '../validators'
-import { capitalize, parseError } from '../utils'
 import { promptForFeatureName } from '../prompts'
 import { ComponentTypes } from '../constants/componentTypes'
-import { buildReactComponent } from '../builders/structures/buildReactComponent'
 
-export async function createComponent(
+import { buildModal } from '../builders/structures/buildModal'
+
+export async function createModal(
   targetDirectory: string,
   type: ComponentTypes
 ) {
   const componentName = await promptForFeatureName()
 
-  if (!isNameValid(componentName)) {
+  if (!componentName || !isNameValid(componentName)) {
     return window.showErrorMessage('The name must not be empty')
   }
 
   try {
-    await buildReactComponent(capitalize(componentName), targetDirectory, type)
-    window.showInformationMessage(`Successfully generated ${componentName}`)
+    await buildModal(componentName, targetDirectory, type)
   } catch (err) {
     window.showErrorMessage(parseError(err))
   }

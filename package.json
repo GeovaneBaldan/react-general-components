@@ -2,7 +2,7 @@
   "name": "general-components",
   "displayName": "React General Components",
   "description": "Aliases for general react components",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "publisher": "GeovaneBaldan",
   "repository": {
     "type": "git",
@@ -23,23 +23,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "general-components.createWebComponent",
-        "title": "React: Create Web Component"
-      },
-      {
-        "command": "general-components.createMobileComponent",
-        "title": "React: Create Mobile Component"
+        "command": "general-components.createStructure",
+        "title": "RGC: Create new structure"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "general-components.createWebComponent",
-          "group": "componentsGroup@1",
-          "when": "explorerResourceIsFolder"
-        },
-        {
-          "command": "general-components.createMobileComponent",
+          "command": "general-components.createStructure",
           "group": "componentsGroup@1",
           "when": "explorerResourceIsFolder"
         }

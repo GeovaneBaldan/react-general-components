@@ -4,8 +4,10 @@ import { OpenDialogOptions, window } from 'vscode'
 export async function promptForTargetDirectory(): Promise<string | undefined> {
   const options: OpenDialogOptions = {
     canSelectMany: false,
-    openLabel: 'Select a folder to create the feature in',
-    canSelectFolders: true
+    title: 'Select a folder to create the feature in',
+    openLabel: 'Confirm',
+    canSelectFolders: true,
+    canSelectFiles: false
   }
 
   const uri = await window.showOpenDialog(options)

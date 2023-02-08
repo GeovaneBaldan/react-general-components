@@ -8,8 +8,8 @@ export function getHookTypesTemplate(componentName: string) {
       // Params
     }
 
-    export interface ${interfaceName}Response {
-      // Response
+    export interface ${interfaceName}Return {
+      // Return
     }
   `
 }

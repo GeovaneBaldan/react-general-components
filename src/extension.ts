@@ -1,16 +1,11 @@
 import * as vscode from 'vscode'
-import { createComponent } from './commands/createComponent'
+import { selectStructure } from './commands/selectStructure'
 
 // This method is called when your extension is activated
 export function activate(_context: vscode.ExtensionContext) {
   vscode.commands.registerCommand(
-    'general-components.createWebComponent',
-    (uri: vscode.Uri) => createComponent(uri, 'web')
-  )
-
-  vscode.commands.registerCommand(
-    'general-components.createMobileComponent',
-    (uri: vscode.Uri) => createComponent(uri, 'mobile')
+    'general-components.createStructure',
+    (uri: vscode.Uri) => selectStructure(uri)
   )
 }
 

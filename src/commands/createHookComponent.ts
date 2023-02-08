@@ -4,9 +4,9 @@ import { isNameValid } from '../validators'
 import { capitalize, parseError } from '../utils'
 import { promptForFeatureName } from '../prompts'
 import { ComponentTypes } from '../constants/componentTypes'
-import { buildReactComponent } from '../builders/structures/buildReactComponent'
+import { buildHookComponent } from '../builders/structures/buildHookComponent'
 
-export async function createComponent(
+export async function createHookComponent(
   targetDirectory: string,
   type: ComponentTypes
 ) {
@@ -17,7 +17,7 @@ export async function createComponent(
   }
 
   try {
-    await buildReactComponent(capitalize(componentName), targetDirectory, type)
+    await buildHookComponent(capitalize(componentName), targetDirectory, type)
     window.showInformationMessage(`Successfully generated ${componentName}`)
   } catch (err) {
     window.showErrorMessage(parseError(err))

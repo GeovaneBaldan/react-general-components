@@ -1,5 +1,8 @@
 export * from './component/buildComponentFile'
 
+export * from './context/buildContextFile'
+export * from './context/buildContextTypesFile'
+
 export * from './styled/buildWebStyledFile'
 export * from './styled/buildMobileStyledFile'
 
