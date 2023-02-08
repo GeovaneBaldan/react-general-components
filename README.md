@@ -17,3 +17,7 @@ This extensions does not supports settings at the moment.
 ### 1.0.0
 
 Initial release of React General Components for VSCode
+
+### 2.0.0
+
+Adds new structure types to creation
