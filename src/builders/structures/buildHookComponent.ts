@@ -1,5 +1,5 @@
 import { ComponentTypes } from '../../constants/componentTypes'
-import { buildHookFile, buildHookTypesFile } from '../files'
+import { buildHook } from './buildHook'
 import { buildReactComponent } from './buildReactComponent'
 
 export async function buildHookComponent(
@@ -9,8 +9,7 @@ export async function buildHookComponent(
 ) {
   await buildReactComponent(componentName, target, type)
 
-  const hookDirectory = `${target}/hooks`
+  const hookDirectory = `${target}/${componentName}/hooks`
 
-  await buildHookFile(componentName, hookDirectory)
-  await buildHookTypesFile(componentName, hookDirectory)
+  await buildHook(componentName, hookDirectory)
 }
