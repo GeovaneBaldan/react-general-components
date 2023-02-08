@@ -9,6 +9,7 @@ import { getSelectedDirectoryPath } from '../fs-utilities/getSelectedDirectoryPa
 
 // Commands
 import { createHook } from './createHook'
+import { createModal } from './createModal'
 import { createContext } from './createContext'
 import { createComponent } from './createComponent'
 import { createHookComponent } from './createHookComponent'
@@ -33,6 +34,8 @@ async function handleStructureSelection(selection: string, target: string) {
       return createHook(target)
     case Structures.CONTEXT:
       return createContext(target)
+    case Structures.MODAL:
+      return handleCreateComponent(target, Structures.MODAL)
     case Structures.DEFAULT_COMPONENT:
       return handleCreateComponent(target, Structures.DEFAULT_COMPONENT)
     case Structures.HOOK_COMPONENT:
@@ -52,5 +55,7 @@ async function handleCreateComponent(target: string, type: Structures) {
 
   if (type === Structures.DEFAULT_COMPONENT) {
     await createComponent(target, scope)
-  } else await createHookComponent(target, scope)
+  } else if (type === Structures.HOOK_COMPONENT) {
+    await createHookComponent(target, scope)
+  } else createModal(target, scope)
 }
