@@ -3,14 +3,15 @@ import { Uri, window } from 'vscode'
 import { parseError } from '../utils'
 import { isNameValid } from '../validators'
 import { promptForStructureType } from '../prompts'
-import { getSelectedDirectoryPath } from '../fs-utilities/getSelectedDirectoryPath'
 import { Structures } from '../constants/structures'
+import { promptForScope } from '../prompts/promptForScope'
+import { getSelectedDirectoryPath } from '../fs-utilities/getSelectedDirectoryPath'
 
 // Commands
 import { createHook } from './createHook'
 import { createContext } from './createContext'
-import { promptForScope } from '../prompts/promptForScope'
 import { createComponent } from './createComponent'
+import { createHookComponent } from './createHookComponent'
 
 export async function selectStructure(uri: Uri) {
   const structure = await promptForStructureType()
@@ -33,13 +34,15 @@ async function handleStructureSelection(selection: string, target: string) {
     case Structures.CONTEXT:
       return createContext()
     case Structures.DEFAULT_COMPONENT:
-      return handleCreateDefaultComponent(target)
+      return handleCreateComponent(target, Structures.DEFAULT_COMPONENT)
+    case Structures.HOOK_COMPONENT:
+      return handleCreateComponent(target, Structures.HOOK_COMPONENT)
     default:
       window.showErrorMessage('Select a valid option to continue')
   }
 }
 
-async function handleCreateDefaultComponent(target: string) {
+async function handleCreateComponent(target: string, type: Structures) {
   const scope = await promptForScope()
 
   if (!scope) {
@@ -47,5 +50,7 @@ async function handleCreateDefaultComponent(target: string) {
     return null
   }
 
-  await createComponent(target, scope)
+  if (type === Structures.DEFAULT_COMPONENT) {
+    await createComponent(target, scope)
+  } else await createHookComponent(target, scope)
 }

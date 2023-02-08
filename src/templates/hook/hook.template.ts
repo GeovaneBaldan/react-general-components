@@ -5,9 +5,9 @@ export function getHookTemplate(componentName: string) {
 
   return `
     // Types
-    import { ${interfaceName}Params, ${interfaceName}Response } from './types'
+    import { ${interfaceName}Params, ${interfaceName}Return } from './types'
 
-    export function ${hookName}({}: ${interfaceName}Params): ${interfaceName}Response {
+    export function ${hookName}({}: ${interfaceName}Params): ${interfaceName}Return {
       // States
 
       // Functions

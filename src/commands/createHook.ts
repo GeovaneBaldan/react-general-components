@@ -4,7 +4,7 @@ import { parseError } from '../utils'
 import { isNameValid } from '../validators'
 import { promptForFeatureName } from '../prompts'
 
-import { buildHookFile } from '../builders/files'
+import { buildHook } from '../builders/structures/buildHook'
 
 export async function createHook(targetDirectory: string) {
   const componentName = await promptForFeatureName()
@@ -14,7 +14,7 @@ export async function createHook(targetDirectory: string) {
   }
 
   try {
-    await buildHookFile(componentName, targetDirectory)
+    await buildHook(componentName, targetDirectory)
   } catch (err) {
     window.showErrorMessage(parseError(err))
   }

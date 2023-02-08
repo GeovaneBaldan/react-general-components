@@ -9,7 +9,7 @@ export function getHookTypesTemplate(componentName: string) {
     }
 
     export interface ${interfaceName}Return {
-      // Response
+      // Return
     }
   `
 }
