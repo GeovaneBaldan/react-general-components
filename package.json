@@ -15,10 +15,6 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:general-components.createWebComponent",
-    "onCommand:general-components.createMobileComponent"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
