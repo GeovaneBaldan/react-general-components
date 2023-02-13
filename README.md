@@ -21,3 +21,7 @@ Initial release of React General Components for VSCode
 ### 2.0.0
 
 Adds new structure types to creation
+
+### 2.0.2
+
+Fix modal component name validation and line spacing on all templates

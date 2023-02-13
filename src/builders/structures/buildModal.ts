@@ -7,6 +7,7 @@ import {
   buildMobileStyledFile
 } from '../files'
 import { createDirectory } from '../../fs-utilities'
+import { formatModalName } from '../../utils/formatModalName'
 import { ComponentTypes } from '../../constants/componentTypes'
 
 export async function buildModal(
@@ -14,14 +15,16 @@ export async function buildModal(
   targetDirectory: string,
   type: ComponentTypes
 ) {
+  const modalName = formatModalName(componentName)
+
   if (!existsSync(`${targetDirectory}/${componentName}`)) {
-    await createDirectory(`${targetDirectory}/${componentName}`)
+    await createDirectory(`${targetDirectory}/${modalName}`)
   }
 
-  await buildModalFile(componentName, targetDirectory)
-  await buildModalTypesFile(componentName, targetDirectory)
+  await buildModalFile(modalName, targetDirectory)
+  await buildModalTypesFile(modalName, targetDirectory)
 
   if (type === ComponentTypes.MOBILE) {
-    await buildMobileStyledFile(componentName, targetDirectory)
-  } else await buildWebStyledFile(componentName, targetDirectory)
+    await buildMobileStyledFile(modalName, targetDirectory)
+  } else await buildWebStyledFile(modalName, targetDirectory)
 }

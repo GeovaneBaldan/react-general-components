@@ -5,35 +5,35 @@ export function getContextTemplate(componentName: string) {
     formatContextName(componentName)
 
   return `
-    // External Libraries
-    import React, { createContext, useContext } from 'react'
+// External Libraries
+import React, { createContext, useContext } from 'react'
 
-    // Types
-    import { ${interfaceName} } from './types'
+// Types
+import { ${interfaceName} } from './types'
 
-    const ${cleanName}Context = createContext<${interfaceName}>({} as ${interfaceName})
+const ${cleanName}Context = createContext<${interfaceName}>({} as ${interfaceName})
 
-    const ${cleanName}Provider: React.FC = ({ children }) => {
+const ${cleanName}Provider: React.FC = ({ children }) => {
 
-      return (
-        <${cleanName}Context.Provider
-          value={{ /* Values */ }}
-        >
-          {children}
-        </${cleanName}Context.Provider>
-      )
-    }
+  return (
+    <${cleanName}Context.Provider
+      value={{ /* Values */ }}
+    >
+      {children}
+    </${cleanName}Context.Provider>
+  )
+}
 
-  function ${contextName}Context(): ${interfaceName} {
-    const context = useContext(${cleanName}Context)
+function ${contextName}Context(): ${interfaceName} {
+  const context = useContext(${cleanName}Context)
 
-    if (!Object.keys(context)?.length) {
-      throw new Error('${contextName} must be within an ContextoProvider')
-    }
-
-    return context
+  if (!Object.keys(context)?.length) {
+    throw new Error('${contextName} must be within an ContextoProvider')
   }
 
-  export { ${cleanName}Provider, ${contextName}Context }
+  return context
+}
+
+export { ${cleanName}Provider, ${contextName}Context }
 `
 }

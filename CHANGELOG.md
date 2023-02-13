@@ -13,3 +13,8 @@ All notable changes to the "general-components" extension will be documented in 
 ## [2.0.0]
 
 - Add new structure types to creation
+
+## [2.0.2]
+
+- Fix modal component name validation
+- Fix line spacing on all templates

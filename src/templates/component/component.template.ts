@@ -1,15 +1,15 @@
 export function getComponentTemplate(componentName: string) {
   return `
-    // External Libraries
-    import React from "react"
+// External Libraries
+import React from "react"
 
-    // Components
+// Components
 
-    // Styles
-    import { Container } from "./styles"
+// Styles
+import { Container } from "./styles"
 
-    export const ${componentName}: React.FC = () => {
-      return <Container>{/* Code */}</Container>
-    }
-  `
+export const ${componentName}: React.FC = () => {
+  return <Container>{/* Code */}</Container>
+}
+`
 }
