@@ -1,12 +1,14 @@
-import { ApiMethods } from '../../types'
+import { formatApiName } from '../../utils'
 
-export function getApiTypesTemplate(componentName: string, method: ApiMethods) {
+export function getApiTypesTemplate(componentName: string) {
+  const { paramsName, responseName } = formatApiName(componentName)
+
   return `
-export interface ${componentName}Params {
+export interface ${paramsName} {
   // Params
 }
 
-export interface ${componentName}Response {
+export interface ${responseName} {
   // Props
 }
 `

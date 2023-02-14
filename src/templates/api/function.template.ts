@@ -1,18 +1,22 @@
-import { ApiMethods } from '../../types'
+import { ApiMethods } from '../../constants/apiMethods'
+import { formatApiName } from '../../utils'
 
 export function getApiFunctionTemplate(
   componentName: string,
   method: ApiMethods
 ) {
+  const { functionName, paramsName, responseName } =
+    formatApiName(componentName)
+
   return `
 // Types
-import {  } from './types.ts'
+import { ${paramsName}, ${responseName} } from './types'
 
-export async function ${componentName}(params: {PARAMS_INTERFACE}): Promise<{RESPONSE_INTERFACE}> {
+export async function ${functionName}(params: ${paramsName}): Promise<${responseName}> {
   const {  } = params
   const url = ''
 
-  const response = await API.${method}(url)
+  const response = await API.${method.toLowerCase()}(url)
   return response.data
 }
 `
