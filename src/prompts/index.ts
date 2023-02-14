@@ -1,3 +1,5 @@
+export * from './promptForScope'
 export * from './promptForFeatureName'
 export * from './promptTargetDirectory'
 export * from './promptForStructureType'
+export * from './promptForRequestMethod'

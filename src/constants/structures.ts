@@ -3,5 +3,6 @@ export enum Structures {
   HOOK_COMPONENT = 'Hook component',
   MODAL = 'Modal component',
   HOOK = 'Hook',
-  CONTEXT = 'Context'
+  CONTEXT = 'Context',
+  API_ROUTE = 'Api Route'
 }

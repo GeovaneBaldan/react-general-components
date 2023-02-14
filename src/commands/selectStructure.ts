@@ -1,16 +1,20 @@
 import { Uri, window } from 'vscode'
 
+import {
+  promptForScope,
+  promptForStructureType,
+  promptForRequestMethod
+} from '../prompts'
 import { parseError } from '../utils'
 import { isNameValid } from '../validators'
-import { promptForStructureType } from '../prompts'
 import { Structures } from '../constants/structures'
-import { promptForScope } from '../prompts/promptForScope'
 import { getSelectedDirectoryPath } from '../fs-utilities/getSelectedDirectoryPath'
 
 // Commands
 import { createHook } from './createHook'
 import { createModal } from './createModal'
 import { createContext } from './createContext'
+import { createApiRoute } from './createApiRoute'
 import { createComponent } from './createComponent'
 import { createHookComponent } from './createHookComponent'
 
@@ -40,9 +44,22 @@ async function handleStructureSelection(selection: string, target: string) {
       return handleCreateComponent(target, Structures.DEFAULT_COMPONENT)
     case Structures.HOOK_COMPONENT:
       return handleCreateComponent(target, Structures.HOOK_COMPONENT)
+    case Structures.API_ROUTE:
+      return handleCreateApiRoute(target)
     default:
       window.showErrorMessage('Select a valid option to continue')
   }
+}
+
+async function handleCreateApiRoute(target: string) {
+  const method = await promptForRequestMethod()
+
+  if (!method) {
+    window.showErrorMessage('Select a valid option to continue')
+    return null
+  }
+
+  await createApiRoute(target, method)
 }
 
 async function handleCreateComponent(target: string, type: Structures) {

@@ -6,8 +6,8 @@ import {
   buildModalTypesFile,
   buildMobileStyledFile
 } from '../files'
+import { formatModalName } from '../../utils'
 import { createDirectory } from '../../fs-utilities'
-import { formatModalName } from '../../utils/formatModalName'
 import { ComponentTypes } from '../../constants/componentTypes'
 
 export async function buildModal(
