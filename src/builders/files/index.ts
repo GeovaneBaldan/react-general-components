@@ -1,4 +1,5 @@
 export * from './component/buildComponentFile'
+export * from './component/buildHookComponentFile'
 
 export * from './context/buildContextFile'
 export * from './context/buildContextTypesFile'

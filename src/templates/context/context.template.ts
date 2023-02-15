@@ -28,7 +28,7 @@ function ${contextName}Context(): ${interfaceName} {
   const context = useContext(${cleanName}Context)
 
   if (!Object.keys(context)?.length) {
-    throw new Error('${contextName} must be within an ContextoProvider')
+    throw new Error('${contextName} must be within a ContextProvider')
   }
 
   return context
