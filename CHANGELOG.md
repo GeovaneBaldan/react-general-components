@@ -23,3 +23,7 @@ All notable changes to the "general-components" extension will be documented in 
 ## [2.0.3]
 
 - Add api routes to creation options
+
+## [2.0.4]
+
+- Fix hook component and styled templates
