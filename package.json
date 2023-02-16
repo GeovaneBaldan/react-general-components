@@ -4,6 +4,12 @@
   "description": "Aliases for general react components",
   "version": "2.0.4",
   "publisher": "GeovaneBaldan",
+  "icon": "images/icon.png",
+  "homepage": "https://github.com/GeovaneBaldan/react-general-components/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/GeovaneBaldan/react-general-components/issues",
+    "email": "geovane.baldan@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/GeovaneBaldan/react-general-components"
