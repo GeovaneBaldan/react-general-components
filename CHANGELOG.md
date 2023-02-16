@@ -27,3 +27,8 @@ All notable changes to the "general-components" extension will be documented in 
 ## [2.0.4]
 
 - Fix hook component and styled templates
+
+## [2.0.5]
+
+- Adds the extension icon
+- Adds the command to export all files from a directory on index
