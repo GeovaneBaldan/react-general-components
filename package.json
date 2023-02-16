@@ -2,7 +2,7 @@
   "name": "general-components",
   "displayName": "React General Components",
   "description": "Aliases for general react components",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "publisher": "GeovaneBaldan",
   "icon": "images/icon.png",
   "homepage": "https://github.com/GeovaneBaldan/react-general-components/blob/main/README.md",
@@ -27,12 +27,21 @@
       {
         "command": "general-components.createStructure",
         "title": "RGC: Create new structure"
+      },
+      {
+        "command": "general-components.exportFiles",
+        "title": "RGC: Export files"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "general-components.createStructure",
+          "group": "componentsGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "general-components.exportFiles",
           "group": "componentsGroup@1",
           "when": "explorerResourceIsFolder"
         }
