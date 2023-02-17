@@ -15,7 +15,7 @@ export async function exportFiles(uri: Uri) {
   const template = buildExportTemplate(files)
 
   if (existsSync(targetPath)) {
-    throw Error(`[ExportFiles] An index already exists in this path.`)
+    window.showErrorMessage(`[Export] An index already exists in this path.`)
   }
 
   try {
