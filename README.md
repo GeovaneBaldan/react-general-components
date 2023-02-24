@@ -37,3 +37,7 @@ Fix hook component and styled templates
 ### 2.0.5
 
 Adds the extension icon and the command to export all files from a directory on index
+
+### 2.0.6
+
+Fix export files function

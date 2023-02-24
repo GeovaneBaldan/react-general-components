@@ -32,3 +32,7 @@ All notable changes to the "general-components" extension will be documented in 
 
 - Adds the extension icon
 - Adds the command to export all files from a directory on index
+
+## [2.0.6]
+
+- Fix export files function
