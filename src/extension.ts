@@ -1,4 +1,5 @@
 import * as vscode from 'vscode'
+
 import { exportFiles } from './commands/exportFiles'
 import { selectStructure } from './commands/selectStructure'
 

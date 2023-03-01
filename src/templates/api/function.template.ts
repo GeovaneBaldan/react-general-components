@@ -8,8 +8,7 @@ export function getApiFunctionTemplate(
   const { functionName, paramsName, responseName } =
     formatApiName(componentName)
 
-  return `
-// Types
+  return `// Types
 import { ${paramsName}, ${responseName} } from './types'
 
 export async function ${functionName}(params: ${paramsName}): Promise<${responseName}> {

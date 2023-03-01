@@ -4,8 +4,7 @@ export function getContextTemplate(componentName: string) {
   const { contextName, cleanName, interfaceName } =
     formatContextName(componentName)
 
-  return `
-// External Libraries
+  return `// External Libraries
 import React, { createContext, useContext } from 'react'
 
 // Types

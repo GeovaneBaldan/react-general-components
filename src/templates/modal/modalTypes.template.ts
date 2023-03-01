@@ -1,6 +1,5 @@
 export function getModalTypesTemplate(componentName: string) {
-  return `
-export interface ${componentName}Methods {
+  return `export interface ${componentName}Methods {
   open: () => void
   close: () => void
 }
