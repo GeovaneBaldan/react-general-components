@@ -7,9 +7,9 @@ export function formatModalName(name: string) {
 
   if (!END_VALIDATION.test(name)) modalName = `${modalName}Modal`
 
-  return capitalize(padronizeName(modalName))
+  return capitalize(standardizeName(modalName))
 }
 
-function padronizeName(name: string) {
+function standardizeName(name: string) {
   return name.replace(/modal/i, 'Modal')
 }
