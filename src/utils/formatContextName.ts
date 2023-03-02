@@ -12,10 +12,14 @@ export function formatContextName(name: string) {
       ? `${contextName}Context`
       : contextName
 
-  return { contextName, cleanName, interfaceName }
+  return { contextName: padronizeName(contextName), cleanName, interfaceName }
 }
 
 function cleanContextName(name: string) {
   const cleanName = name.replace(/use|context/gi, '')
   return capitalize(cleanName)
+}
+
+function padronizeName(name: string) {
+  return name.replace(/use/i, 'use').replace(/context/i, 'Context')
 }
