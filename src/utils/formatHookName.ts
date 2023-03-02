@@ -8,5 +8,9 @@ export function formatHookName(name: string) {
 
   const interfaceName = `I${capitalize(hookName)}`
 
-  return { hookName, interfaceName }
+  return { hookName: padronizeName(hookName), interfaceName }
+}
+
+function padronizeName(name: string) {
+  return name.replace(/use/i, 'use')
 }
