@@ -1,6 +1,5 @@
 export function getModalTemplate(componentName: string) {
-  return `
-// External Libraries
+  return `// External Libraries
 import React, { useState, useImperativeHandle } from 'react'
 
 // Components

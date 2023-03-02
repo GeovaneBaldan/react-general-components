@@ -1,6 +1,5 @@
 export function getComponentTemplate(componentName: string) {
-  return `
-// External Libraries
+  return `// External Libraries
 import React from 'react'
 
 // Components

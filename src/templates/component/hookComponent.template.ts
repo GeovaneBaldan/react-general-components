@@ -3,8 +3,7 @@ import { formatHookName } from '../../utils'
 export function getHookComponentTemplate(componentName: string) {
   const { hookName } = formatHookName(componentName)
 
-  return `
-// External Libraries
+  return `// External Libraries
 import React from 'react'
 
 // Components

@@ -1,12 +1,25 @@
 import { capitalize } from './capitalize'
 
 export function formatContextName(name: string) {
-  let contextName = name
-
-  if (!name.startsWith('use')) contextName = `use${capitalize(name)}`
-
-  const cleanName = capitalize(contextName.slice(3))
+  const cleanName = cleanContextName(name)
   const interfaceName = `I${cleanName}ContextData`
 
-  return { contextName, cleanName, interfaceName }
+  let contextName =
+    name.match(/\buse\w*/i) === null ? `use${capitalize(name)}` : name
+
+  contextName =
+    contextName.match(/\b\w*context\b/i) === null
+      ? `${contextName}Context`
+      : contextName
+
+  return { contextName: standardizeName(contextName), cleanName, interfaceName }
+}
+
+function cleanContextName(name: string) {
+  const cleanName = name.replace(/use|context/gi, '')
+  return capitalize(cleanName)
+}
+
+function standardizeName(name: string) {
+  return name.replace(/use/i, 'use').replace(/context/i, 'Context')
 }

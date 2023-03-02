@@ -4,8 +4,7 @@ export function getContextTemplate(componentName: string) {
   const { contextName, cleanName, interfaceName } =
     formatContextName(componentName)
 
-  return `
-// External Libraries
+  return `// External Libraries
 import React, { createContext, useContext } from 'react'
 
 // Types
@@ -13,7 +12,7 @@ import { ${interfaceName} } from './types'
 
 const ${cleanName}Context = createContext<${interfaceName}>({} as ${interfaceName})
 
-const ${cleanName}Provider: React.FC = ({ children }) => {
+const ${cleanName}ContextProvider: React.FC = ({ children }) => {
 
   return (
     <${cleanName}Context.Provider
@@ -24,7 +23,7 @@ const ${cleanName}Provider: React.FC = ({ children }) => {
   )
 }
 
-function ${contextName}Context(): ${interfaceName} {
+function ${contextName}(): ${interfaceName} {
   const context = useContext(${cleanName}Context)
 
   if (!Object.keys(context)?.length) {
@@ -34,6 +33,6 @@ function ${contextName}Context(): ${interfaceName} {
   return context
 }
 
-export { ${cleanName}Provider, ${contextName}Context }
+export { ${cleanName}ContextProvider, ${contextName} }
 `
 }
