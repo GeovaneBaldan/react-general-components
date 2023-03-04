@@ -6,10 +6,14 @@ All notable changes to the "general-components" extension will be documented in 
 
 - No new features are planned
 
+## [2.0.8]
+
+- Refactors API routes interfaces creation
+
 ## [2.0.7]
 
 - Refactor the structure for creating typing files for hooks and contexts
-- Adds handling to standardize context, hook, and modal names regardless of input.
+- Adds handling to standardize context, hook, and modal names regardless of input
 
 ## [2.0.6]
 
