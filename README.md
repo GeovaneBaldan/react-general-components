@@ -14,6 +14,10 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+### 2.0.8
+
+Refactors API routes interfaces creation
+
 ### 2.0.7
 
 Refactor the structure for creating typing files for hooks and contexts and adds handling to standardize context, hook, and modal names regardless of input.

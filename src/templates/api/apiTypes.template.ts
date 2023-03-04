@@ -4,11 +4,11 @@ export function getApiTypesTemplate(componentName: string) {
   const { paramsName, responseName } = formatApiName(componentName)
 
   return `export interface ${paramsName} {
-  // Params
+  // Route Params
 }
 
 export interface ${responseName} {
-  // Props
+  // Request Response
 }
 `
 }

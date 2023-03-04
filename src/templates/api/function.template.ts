@@ -11,11 +11,11 @@ export function getApiFunctionTemplate(
   return `// Types
 import { ${paramsName}, ${responseName} } from './types'
 
-export async function ${functionName}(params: ${paramsName}): Promise<${responseName}> {
+export async function ${functionName}(params: ${paramsName}): Promise<{}> {
   const {  } = params
   const url = ''
 
-  const response = await API.${method.toLowerCase()}(url)
+  const response = await API.${method.toLowerCase()}<${responseName}>(url)
   return response.data
 }
 `
