@@ -1,15 +1,18 @@
-import { QuickPickOptions, window } from 'vscode'
+// External Libraries
+import { window, QuickPickOptions } from 'vscode'
 
-import { ApiMethods } from '../constants/apiMethods'
+// Types
+import { ApiMethod } from '../types/apiMethod'
 
-export function promptForRequestMethod(): Thenable<ApiMethods | undefined> {
-  const options: QuickPickOptions = {
-    canPickMany: false,
-    placeHolder: 'Select api route request method'
-  }
+const CONFIG: QuickPickOptions = {
+  placeHolder: 'Select the request method',
+  title: 'Route method',
+  canPickMany: false
+}
 
-  const menuItems = Object.values(ApiMethods)
-  return window.showQuickPick(menuItems, options) as Thenable<
-    ApiMethods | undefined
-  >
+export function promptForRequestMethod() {
+  const menuItems = Object.values(ApiMethod)
+  const selection = window.showQuickPick(menuItems, CONFIG)
+
+  return selection as Thenable<ApiMethod | undefined>
 }
