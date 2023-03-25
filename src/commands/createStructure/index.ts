@@ -4,6 +4,7 @@ import { Uri, window } from 'vscode'
 // Builders
 import {
   createHook,
+  createModal,
   createRoute,
   createContext,
   createComponent
@@ -40,6 +41,8 @@ function handleCreateStructure(selection: Structure, path: string) {
       return createHook(path)
     case Structure.COMPONENT:
       return createComponent(path)
+    case Structure.MODAL:
+      return createModal(path)
     default:
       window.showErrorMessage('Select a valid option to continue')
   }
