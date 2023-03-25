@@ -6,5 +6,5 @@ export function getHookTemplate(name: string) {
   const functionTemplate = getHookFunctionTemplate(name)
   const types = getHookTypesTemplate(name)
 
-  return { function: functionTemplate, types }
+  return { functionTemplate, types }
 }

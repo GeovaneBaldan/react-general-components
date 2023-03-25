@@ -1,20 +1,24 @@
 // External Libraries
 import { window } from 'vscode'
 import { existsSync } from 'fs'
-import { writeFile } from 'fs/promises'
+
+// Builders
+import { createRouteFiles } from './createFiles'
 
 // Utils
+import {
+  promptForRequestMethod,
+  promptForStructureName
+} from '../../../../prompts'
 import { createDirectory } from '../../../../utils/fs'
 import { parseError } from '../../../../utils/functions'
-import { promptForStructureName } from '../../../../prompts'
 
-// Templates
-import { getRouteTemplate } from '../../../../templates/route'
+export async function createRoute(path: string) {
+  const method = await promptForRequestMethod()
 
-// Types
-import { ApiMethod } from '../../../../types/apiMethod'
+  if (!method)
+    return window.showErrorMessage('Select a valid option to continue')
 
-export async function createRoute(path: string, method: ApiMethod) {
   const routeName = await promptForStructureName()
 
   if (!routeName)
@@ -27,22 +31,5 @@ export async function createRoute(path: string, method: ApiMethod) {
     await createRouteFiles(routeName, targetDirectory, method)
   } catch (err) {
     window.showErrorMessage(parseError(err))
-  }
-}
-
-async function createRouteFiles(name: string, path: string, method: ApiMethod) {
-  const typesPath = `${path}/types.ts`
-  const functionPath = `${path}/index.ts`
-
-  if (existsSync(functionPath) || existsSync(typesPath))
-    throw Error(`[ApiRoute] ${name} already exists in this path.`)
-
-  try {
-    const { functionTemplate, types } = getRouteTemplate(name, method)
-
-    await writeFile(typesPath, types, { encoding: 'utf-8' })
-    await writeFile(functionPath, functionTemplate, { encoding: 'utf-8' })
-  } catch (error) {
-    throw new Error('[ApiRoute] An error occurred while creating route files')
   }
 }
