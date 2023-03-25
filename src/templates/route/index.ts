@@ -9,5 +9,5 @@ export function getRouteTemplate(name: string, method: ApiMethod) {
   const functionTemplate = getFunctionTemplate(name, method)
   const types = getRouteTypesTemplate(name)
 
-  return { function: functionTemplate, types }
+  return { functionTemplate, types }
 }
