@@ -1,16 +1,21 @@
+// Utils
+import { capitalize } from '../../../utils/functions'
+
 export function getDefaultModalTemplate(componentName: string) {
+  const modalName = capitalize(componentName)
+
   return `// External Libraries
 import React, { useState, useImperativeHandle } from 'react'
 
 // Components
 
 // Types
-import { ${componentName}Methods, ${componentName}Props } from './types'
+import { ${modalName}Methods, ${modalName}Props } from './types'
 
 // Styles
 import { Container } from './styles'
 
-export const ${componentName} = React.forwardRef<${componentName}Methods, ${componentName}Props>((props, ref) => {
+export const ${modalName} = React.forwardRef<${modalName}Methods, ${modalName}Props>((props, ref) => {
   // Hooks
   useImperativeHandle(ref, handleRefMethods)
 
@@ -37,7 +42,7 @@ export const ${componentName} = React.forwardRef<${componentName}Methods, ${comp
   )
 })
 
-${componentName}.displayName = '${componentName}'
+${modalName}.displayName = '${modalName}'
 
 `
 }
