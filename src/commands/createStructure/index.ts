@@ -16,7 +16,7 @@ import { parseError } from '../../utils/functions'
 import { promptForStructureType } from '../../prompts'
 
 // Types
-import { Structure } from '../../types/structure'
+import { HookVariant, Structure } from '../../types/structure'
 
 export async function createStructure(uri: Uri) {
   const structure = await promptForStructureType()
@@ -38,7 +38,7 @@ function handleCreateStructure(selection: Structure, path: string) {
     case Structure.CONTEXT:
       return createContext(path)
     case Structure.HOOK:
-      return createHook(path)
+      return createHook({ path, variant: HookVariant.DEFAULT })
     case Structure.COMPONENT:
       return createComponent(path)
     case Structure.MODAL:

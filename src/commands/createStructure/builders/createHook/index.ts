@@ -9,8 +9,16 @@ import { createHookFiles } from './createFiles'
 import { createDirectory } from '../../../../utils/fs'
 import { promptForStructureName } from '../../../../prompts'
 import { formatHookName, parseError } from '../../../../utils/functions'
+import { HookVariant } from '../../../../types/structure'
 
-export async function createHook(path: string, name?: string) {
+interface ICreateHookParams {
+  path: string
+  name?: string
+  variant: HookVariant
+}
+
+export async function createHook(params: ICreateHookParams) {
+  const { name, path, variant } = params
   let inputName
 
   if (name) inputName = name
@@ -19,13 +27,13 @@ export async function createHook(path: string, name?: string) {
   if (!inputName)
     return window.showErrorMessage('Insert a valid name to continue')
 
-  const { hookName } = formatHookName(inputName)
+  const { hookName } = formatHookName(inputName, variant)
 
   try {
     const targetDirectory = `${path}/${hookName}`
     if (!existsSync(targetDirectory)) await createDirectory(targetDirectory)
 
-    await createHookFiles(hookName, targetDirectory)
+    await createHookFiles(hookName, targetDirectory, variant)
   } catch (err) {
     window.showErrorMessage(parseError(err))
   }

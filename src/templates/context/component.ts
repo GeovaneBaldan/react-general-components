@@ -5,14 +5,14 @@ export function getContextComponentTemplate(name: string) {
   const { contextName, cleanName, interfaceName } = formatContextName(name)
 
   return `// External Libraries
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, PropsWithChildren } from 'react'
 
 // Types
 import { ${interfaceName} } from './types'
 
 const ${cleanName}Context = createContext<${interfaceName}>({} as ${interfaceName})
 
-const ${cleanName}ContextProvider: React.FC = ({ children }) => {
+const ${cleanName}ContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <${cleanName}Context.Provider

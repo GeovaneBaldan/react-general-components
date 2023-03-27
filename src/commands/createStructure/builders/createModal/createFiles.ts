@@ -1,6 +1,5 @@
 // External Libraries
 import { window } from 'vscode'
-import { existsSync } from 'fs'
 import { writeFile } from 'fs/promises'
 
 // Builders
@@ -14,7 +13,7 @@ import { getStyledTemplate } from '../../../../templates/styled'
 
 // Types
 import { Platform } from '../../../../types/platform'
-import { StructureVariant } from '../../../../types/structure'
+import { HookVariant, StructureVariant } from '../../../../types/structure'
 
 interface IModalFilesParams {
   name: string
@@ -40,8 +39,15 @@ export async function createModalFiles(params: IModalFilesParams) {
 
     if (variant === StructureVariant.HOOK) {
       const hookDirectory = `${path}/hooks`
-      if (!existsSync(hookDirectory)) await createDirectory(hookDirectory)
-      await createHook(hookDirectory, name)
+      await createDirectory(hookDirectory)
+
+      const createHookParams = {
+        name,
+        path: hookDirectory,
+        variant: HookVariant.MODAL
+      }
+
+      await createHook(createHookParams)
     }
   } catch (err) {
     window.showErrorMessage(parseError(err))

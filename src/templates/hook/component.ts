@@ -5,7 +5,7 @@ export function getHookFunctionTemplate(name: string) {
   const { hookName, interfaceName } = formatHookName(name)
 
   return `// Types
-import { ${interfaceName}Params, ${interfaceName}Return } from './types'
+import { ${interfaceName}Params } from './types'
 
 export function ${hookName}({}: ${interfaceName}Params) {
   // States

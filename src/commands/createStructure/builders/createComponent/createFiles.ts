@@ -14,7 +14,7 @@ import { getComponentTemplate } from '../../../../templates/component'
 
 // Types
 import { Platform } from '../../../../types/platform'
-import { StructureVariant } from '../../../../types/structure'
+import { HookVariant, StructureVariant } from '../../../../types/structure'
 
 interface IComponentFilesParams {
   name: string
@@ -38,8 +38,15 @@ export async function createComponentFiles(params: IComponentFilesParams) {
 
     if (variant === StructureVariant.HOOK) {
       const hookDirectory = `${path}/hooks`
-      if (!existsSync(hookDirectory)) await createDirectory(hookDirectory)
-      await createHook(hookDirectory, name)
+      await createDirectory(hookDirectory)
+
+      const createHookParams = {
+        name,
+        path: hookDirectory,
+        variant: HookVariant.DEFAULT
+      }
+
+      await createHook(createHookParams)
     }
   } catch (err) {
     window.showErrorMessage(parseError(err))

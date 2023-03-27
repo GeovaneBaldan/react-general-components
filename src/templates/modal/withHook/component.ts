@@ -1,8 +1,11 @@
 // Utils
 import { formatHookName } from '../../../utils/functions'
 
+// Types
+import { HookVariant } from '../../../types/structure'
+
 export function getHookModalTemplate(componentName: string) {
-  const { hookName } = formatHookName(componentName)
+  const { hookName } = formatHookName(componentName, HookVariant.MODAL)
 
   return `// External Libraries
 import React, { useState, useImperativeHandle } from 'react'
