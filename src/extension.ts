@@ -1,18 +1,17 @@
-import * as vscode from 'vscode'
+// External Libraries
+import { Uri, ExtensionContext, commands } from 'vscode'
 
-import { exportFiles } from './commands/exportFiles'
-import { selectStructure } from './commands/selectStructure'
+// Commands
+import { exportFiles, createStructure } from './commands'
 
 // This method is called when your extension is activated
-export function activate(_context: vscode.ExtensionContext) {
-  vscode.commands.registerCommand(
-    'general-components.createStructure',
-    (uri: vscode.Uri) => selectStructure(uri)
+export function activate(_context: ExtensionContext) {
+  commands.registerCommand('general-components.createStructure', (uri: Uri) =>
+    createStructure(uri)
   )
 
-  vscode.commands.registerCommand(
-    'general-components.exportFiles',
-    (uri: vscode.Uri) => exportFiles(uri)
+  commands.registerCommand('general-components.exportFiles', (uri: Uri) =>
+    exportFiles(uri)
   )
 }
 

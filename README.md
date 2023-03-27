@@ -14,6 +14,15 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+## 3.0.0
+
+The new version brings new options and improvements:
+
+- Refactors the project's folder structure
+- Fix export files command
+- Updates the structure and variation selectors' styles
+- Adds modal with hook component creation
+
 ### 2.0.8
 
 Refactors API routes interfaces creation

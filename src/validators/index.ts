@@ -1,1 +1,1 @@
-export * from './isNameValid'
+export * from './structureName'

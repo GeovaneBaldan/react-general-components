@@ -1,2 +1,10 @@
-export * from './hook.template'
-export * from './hookTypes.template'
+// Templates
+import { getHookTypesTemplate } from './types'
+import { getHookFunctionTemplate } from './component'
+
+export function getHookTemplate(name: string) {
+  const functionTemplate = getHookFunctionTemplate(name)
+  const types = getHookTypesTemplate(name)
+
+  return { functionTemplate, types }
+}
