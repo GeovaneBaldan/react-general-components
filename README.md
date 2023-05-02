@@ -14,6 +14,13 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+## 3.0.1
+
+This version brings up bugs fixes and improvements:
+
+- Fix React Context creation commands
+- Refactors export files command to work based on delimited extension options
+
 ## 3.0.0
 
 The new version brings new options and improvements:
