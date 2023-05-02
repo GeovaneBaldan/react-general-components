@@ -8,7 +8,7 @@ import { getContextTemplate } from '../../../../templates/context'
 
 export async function createContextFiles(name: string, path: string) {
   const typesPath = `${path}/types.ts`
-  const contextPath = `${path}/index.ts`
+  const contextPath = `${path}/index.tsx`
 
   if (existsSync(contextPath) || existsSync(typesPath))
     throw Error(`[Context] ${name} already exists in this path.`)

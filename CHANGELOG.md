@@ -6,6 +6,11 @@ All notable changes to the "general-components" extension will be documented in 
 
 - No new features are planned
 
+## [3.0.1]
+
+- Fix React Context creation commands
+- Refactors the export files command
+
 ## [3.0.0]
 
 - Refactors the project's folder structure
