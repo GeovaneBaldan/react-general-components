@@ -14,6 +14,10 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+## 3.0.3
+
+- Fix export files command
+
 ## 3.0.1
 
 This version brings up bugs fixes and improvements:
