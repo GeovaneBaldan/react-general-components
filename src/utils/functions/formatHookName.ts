@@ -1,7 +1,7 @@
 // Utils
 import { capitalize } from './capitalize'
 
-// Typess
+// Types
 import { HookVariant } from '../../types/structure'
 
 export function formatHookName(name: string, variant?: HookVariant) {

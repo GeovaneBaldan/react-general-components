@@ -9,6 +9,9 @@ import React, { useState, useImperativeHandle } from 'react'
 
 // Components
 
+// Hooks
+import { useModalContext } from '@contexts/useModalContext'
+
 // Types
 import { ${modalName}Methods, ${modalName}Props } from './types'
 
@@ -18,6 +21,7 @@ import { Container } from './styles'
 export const ${modalName} = React.forwardRef<${modalName}Methods, ${modalName}Props>((props, ref) => {
   // Hooks
   useImperativeHandle(ref, handleRefMethods)
+  const { closeModal } = useModalContext()
 
   // States
   const [visible, setVisible] = useState(false)
@@ -33,10 +37,11 @@ export const ${modalName} = React.forwardRef<${modalName}Methods, ${modalName}Pr
 
   function handleClose() {
     setVisible(false)
+    closeModal()
   }
 
   return (
-    <Modal>
+    <Modal open={visible} onClose={handleClose}>
       <Container></Container>
     </Modal>
   )
