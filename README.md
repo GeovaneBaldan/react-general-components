@@ -14,6 +14,10 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+## 3.0.4
+
+- Updates modal creation command
+
 ## 3.0.3
 
 - Fix export files command
