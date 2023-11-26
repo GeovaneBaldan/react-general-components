@@ -9,7 +9,7 @@ export function getHookModalTemplate(componentName: string) {
   const { hookName } = formatHookName(componentName, HookVariant.MODAL)
 
   return `// External Libraries
-import React, { useState, useImperativeHandle } from 'react'
+import React, { useImperativeHandle } from 'react'
 
 // Components
 
@@ -17,7 +17,7 @@ import React, { useState, useImperativeHandle } from 'react'
 import { ${hookName} } from './hooks/${hookName}'
 
 // Types
-import { ${modalName}Methods, ${modalName}Props } from './types'
+import { ${modalName}Props, ${modalName}Methods } from './types'
 
 // Styles
 import { Container } from './styles'
@@ -28,7 +28,7 @@ export const ${modalName} = React.forwardRef<${modalName}Methods, ${modalName}Pr
   useImperativeHandle(ref, handleRefMethods)
 
   return (
-    <Modal>
+    <Modal open={visible} onClose={handleClose}>
       <Container></Container>
     </Modal>
   )

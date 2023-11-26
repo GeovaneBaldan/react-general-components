@@ -5,7 +5,7 @@ export function getHookTypesTemplate(componentName: string) {
   const { interfaceName } = formatHookName(componentName)
   const propsName = getPropsName(componentName)
 
-  return `import { ${propsName} } from "../../../types"
+  return `import { ${propsName} } from '../../../types'
 
 export type ${interfaceName}Params = ${propsName}
 `
