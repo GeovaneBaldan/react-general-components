@@ -6,6 +6,11 @@ All notable changes to the "general-components" extension will be documented in 
 
 - No new features are planned
 
+## [3.0.5]
+
+- Add props by default when creating components (with or without hooks)
+- Fix name validation for creating modal components
+
 ## [3.0.4]
 
 - Updates modal creation command
