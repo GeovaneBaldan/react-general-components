@@ -14,16 +14,26 @@ export async function createRouteFiles(
   path: string,
   method: ApiMethod
 ) {
-  const typesPath = `${path}/types.ts`
+  const requestPath = `${path}/request.ts`
+  const responsePath = `${path}/response.ts`
   const functionPath = `${path}/index.ts`
 
-  if (existsSync(functionPath) || existsSync(typesPath))
+  const pathsExists =
+    existsSync(functionPath) ||
+    existsSync(requestPath) ||
+    existsSync(responsePath)
+
+  if (pathsExists)
     throw Error(`[ApiRoute] ${name} already exists in this path.`)
 
   try {
-    const { functionTemplate, types } = getRouteTemplate(name, method)
+    const { functionTemplate, response, request } = getRouteTemplate(
+      name,
+      method
+    )
 
-    await writeFile(typesPath, types, { encoding: 'utf-8' })
+    await writeFile(requestPath, request, { encoding: 'utf-8' })
+    await writeFile(responsePath, response, { encoding: 'utf-8' })
     await writeFile(functionPath, functionTemplate, { encoding: 'utf-8' })
   } catch (error) {
     throw new Error(`[ApiRoute] ${parseError(error)}`)

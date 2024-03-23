@@ -12,7 +12,7 @@ import {
   promptForStructureVariant
 } from '../../../../prompts'
 import { createDirectory } from '../../../../utils/fs'
-import { parseError } from '../../../../utils/functions'
+import { formatModalName, parseError } from '../../../../utils/functions'
 
 export async function createModal(path: string) {
   const variant = await promptForStructureVariant()
@@ -30,14 +30,16 @@ export async function createModal(path: string) {
   if (!modalName)
     return window.showErrorMessage('Insert a valid name to continue')
 
+  const cleanName = formatModalName(modalName)
+
   try {
-    const targetDirectory = `${path}/${modalName}`
+    const targetDirectory = `${path}/${cleanName}`
     if (!existsSync(targetDirectory)) await createDirectory(targetDirectory)
 
     const params = {
       variant,
       platform,
-      name: modalName,
+      name: cleanName,
       path: targetDirectory
     }
 

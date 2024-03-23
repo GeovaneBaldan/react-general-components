@@ -1,11 +1,11 @@
 // Utils
-import { capitalize, formatHookName } from '../../../utils/functions'
+import { formatHookName, formatModalName } from '../../../utils/functions'
 
 // Types
 import { HookVariant } from '../../../types/structure'
 
 export function getHookModalTemplate(componentName: string) {
-  const modalName = capitalize(componentName)
+  const modalName = formatModalName(componentName)
   const { hookName } = formatHookName(componentName, HookVariant.MODAL)
 
   return `// External Libraries

@@ -11,7 +11,8 @@ export function getFunctionTemplate(name: string, method: ApiMethod) {
 import { API } from '@services/api'
 
 // Types
-import { ${paramsName}, ${responseName} } from './types'
+import { ${responseName} } from './response'
+import { ${paramsName} } from './request'
 
 export async function ${functionName}(params: ${paramsName}) {
   const {  } = params

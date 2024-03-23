@@ -16,7 +16,7 @@ export function formatHookName(name: string, variant?: HookVariant) {
 
   return {
     hookName: standardizeName(hookName),
-    interfaceName: `I${capitalize(hookName)}`
+    interfaceName: `${capitalize(hookName)}`
   }
 }
 

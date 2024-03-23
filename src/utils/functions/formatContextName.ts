@@ -3,7 +3,7 @@ import { capitalize } from './capitalize'
 
 export function formatContextName(name: string) {
   const cleanName = cleanContextName(name)
-  const interfaceName = `I${cleanName}ContextData`
+  const interfaceName = `${cleanName}ContextData`
 
   const startWithUse = name.match(/\buse\w*/i) !== null
   let contextName = !startWithUse ? `use${capitalize(name)}` : name

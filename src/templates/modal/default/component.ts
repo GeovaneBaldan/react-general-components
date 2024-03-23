@@ -1,8 +1,8 @@
 // Utils
-import { capitalize } from '../../../utils/functions'
+import { formatModalName } from '../../../utils/functions'
 
 export function getDefaultModalTemplate(componentName: string) {
-  const modalName = capitalize(componentName)
+  const modalName = formatModalName(componentName)
 
   return `// External Libraries
 import React, { useState, useImperativeHandle } from 'react'

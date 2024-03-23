@@ -16,7 +16,7 @@ const ${cleanName}ContextProvider: React.FC<PropsWithChildren> = ({ children }) 
 
   return (
     <${cleanName}Context.Provider
-      value={{ /* Values */ }}
+      value={{}}
     >
       {children}
     </${cleanName}Context.Provider>

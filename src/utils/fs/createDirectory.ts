@@ -1,5 +1,5 @@
 // External Libraries
-import mkdirp = require('mkdirp')
+import { mkdirp } from 'mkdirp'
 
 export async function createDirectory(path: string) {
   await mkdirp(path)
