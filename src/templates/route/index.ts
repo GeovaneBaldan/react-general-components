@@ -1,13 +1,15 @@
 // Templates
-import { getRouteTypesTemplate } from './types'
 import { getFunctionTemplate } from './function'
 
 // Types
 import { ApiMethod } from '../../types/apiMethod'
+import { getRouteRequestTemplate } from './request'
+import { getRouteResponseTemplate } from './response'
 
 export function getRouteTemplate(name: string, method: ApiMethod) {
   const functionTemplate = getFunctionTemplate(name, method)
-  const types = getRouteTypesTemplate(name)
+  const request = getRouteRequestTemplate(name)
+  const response = getRouteResponseTemplate(name)
 
-  return { functionTemplate, types }
+  return { functionTemplate, request, response }
 }

@@ -7,7 +7,11 @@ import React from 'react'
 // Styles
 import { Container } from './styles'
 
-export const ${name}: React.FC = () => {
+interface Props {
+  // Props
+}
+
+export const ${name}: React.FC<Props> = ({/* Props */}) => {
   return <Container>{/* Code */}</Container>
 }
 `

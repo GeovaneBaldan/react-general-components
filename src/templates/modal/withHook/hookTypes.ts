@@ -16,6 +16,9 @@ function getPropsName(name: string) {
 
   if (propsName.startsWith('use')) {
     propsName = propsName.replace(/^use/i, '')
+  }
+
+  if (!propsName.endsWith('Modal')) {
     propsName = `${propsName}Modal`
   }
 

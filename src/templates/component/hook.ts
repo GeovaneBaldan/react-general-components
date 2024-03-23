@@ -15,7 +15,11 @@ import { ${hookName} } from './hooks/${hookName}'
 // Styles
 import { Container } from './styles'
 
-export const ${name}: React.FC = () => {
+interface Props {
+  // Props
+}
+
+export const ${name}: React.FC<Props> = ({/* Props */}) => {
   // Hooks
   const {  } = ${hookName}()
 
