@@ -14,6 +14,10 @@ This extensions does not supports settings at the moment.
 
 ## Release Notes
 
+## 3.0.6
+
+- Fix export command to ignore hidden files
+
 ## 3.0.5
 
 - Add props by default when creating components (with or without hooks)

@@ -6,6 +6,10 @@ All notable changes to the "general-components" extension will be documented in 
 
 - No new features are planned
 
+## [3.0.6]
+
+- Fix export command to ignore hidden files
+
 ## [3.0.5]
 
 - Add props by default when creating components (with or without hooks)
