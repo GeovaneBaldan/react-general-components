@@ -3,7 +3,7 @@ export function getExportedFilesTemplate(filenames: string[]) {
 
   for (const filename of filenames) {
     const name = getFileName(filename)
-    if (name === 'index') continue
+    if (name === 'index' || name.startsWith('.')) continue
     template += `export * from './${name}'\n`
   }
 
