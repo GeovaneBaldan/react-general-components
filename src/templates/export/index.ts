@@ -1,19 +1,14 @@
 export function getExportedFilesTemplate(filenames: string[]) {
-  let template = ''
-
-  for (const filename of filenames) {
-    const name = getFileName(filename)
-    if (name === 'index' || name.startsWith('.')) continue
-    template += `export * from './${name}'\n`
-  }
-
-  return template
+  return [...filenames]
+    .sort((a, b) => a.length - b.length)
+    .map(getFileName)
+    .filter(name => name !== 'index' && !name.startsWith('.'))
+    .map(name => `export * from './${name}'`)
+    .join('\n')
 }
 
-function getFileName(filename: string) {
-  const validExtensions = ['.tsx', '.ts', '.jsx', '.js']
-  const extension = validExtensions.find(ext => filename.endsWith(ext))
+const VALID_EXTENSIONS_REGEX = /\.(tsx|ts|jsx|js)$/
 
-  if (extension) return filename.slice(0, -extension.length)
-  else return filename
+function getFileName(filename: string) {
+  return filename.replace(VALID_EXTENSIONS_REGEX, '')
 }
