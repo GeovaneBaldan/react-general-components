@@ -11,7 +11,6 @@ import { getExportedFilesTemplate } from '../../templates/export'
 
 export async function exportFiles(uri: Uri) {
   const targetDirectory = await getDirectoryPath(uri)
-
   const targetPath = `${targetDirectory}/index.ts`
 
   const files = await readdir(targetDirectory)

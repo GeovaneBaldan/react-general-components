@@ -1,7 +1,13 @@
 // Utils
 import { formatContextName } from '../../utils/functions'
 
-export function getContextComponentTemplate(name: string) {
+// Types
+import { ReactVersion } from '../../types/version'
+
+export function getContextComponentTemplate(
+  name: string,
+  reactVersion: ReactVersion
+) {
   const { contextName, cleanName, interfaceName } = formatContextName(name)
 
   return `// External Libraries
@@ -15,11 +21,7 @@ const ${cleanName}Context = createContext<${interfaceName}>({} as ${interfaceNam
 const ${cleanName}ContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
-    <${cleanName}Context.Provider
-      value={{}}
-    >
-      {children}
-    </${cleanName}Context.Provider>
+    ${getContextProvider(cleanName, reactVersion)}
   )
 }
 
@@ -35,4 +37,17 @@ function ${contextName}(): ${interfaceName} {
 
 export { ${cleanName}ContextProvider, ${contextName} }
 `
+}
+
+function getContextProvider(name: string, version: ReactVersion) {
+  if (version === ReactVersion.V19) {
+    return `<${name}Context value={{}}>
+      {children}
+    </${name}Context>`
+  }
+
+  return `<${name}Context.Provider value={{}}>
+    {children}
+  </${name}Context.Provider>
+  `
 }

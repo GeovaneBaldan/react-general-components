@@ -6,7 +6,17 @@ import { writeFile } from 'fs/promises'
 import { parseError } from '../../../../utils/functions'
 import { getContextTemplate } from '../../../../templates/context'
 
-export async function createContextFiles(name: string, path: string) {
+// Types
+import { ReactVersion } from '../../../../types/version'
+
+type CreateContextFilesParams = {
+  name: string
+  path: string
+  reactVersion: ReactVersion
+}
+
+export async function createContextFiles(params: CreateContextFilesParams) {
+  const { name, path, reactVersion } = params
   const typesPath = `${path}/types.ts`
   const contextPath = `${path}/index.tsx`
 
@@ -14,7 +24,7 @@ export async function createContextFiles(name: string, path: string) {
     throw Error(`[Context] ${name} already exists in this path.`)
 
   try {
-    const { component, types } = getContextTemplate(name)
+    const { component, types } = getContextTemplate(name, reactVersion)
 
     await writeFile(typesPath, types, { encoding: 'utf-8' })
     await writeFile(contextPath, component, { encoding: 'utf-8' })

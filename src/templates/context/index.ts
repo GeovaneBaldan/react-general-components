@@ -2,8 +2,11 @@
 import { getContextTypesTemplate } from './types'
 import { getContextComponentTemplate } from './component'
 
-export function getContextTemplate(name: string) {
-  const component = getContextComponentTemplate(name)
+// Types
+import { ReactVersion } from '../../types/version'
+
+export function getContextTemplate(name: string, reactVersion: ReactVersion) {
+  const component = getContextComponentTemplate(name, reactVersion)
   const types = getContextTypesTemplate(name)
 
   return { component, types }

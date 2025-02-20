@@ -19,31 +19,37 @@ import { parseError } from '../../utils/functions'
 import { Structure } from '../../types/structure'
 import { HookVariant } from '../../types/variant'
 
+type CreateStructureParams = {
+  targetPath: string
+  structure: Structure
+}
+
 export async function createStructure(uri: Uri) {
   const structure = await pickStructure()
-
-  if (!structure) return
+  if (!structure) return window.showErrorMessage('Select a valid structure')
 
   try {
     const targetPath = await getDirectoryPath(uri)
-    handleCreateStructure(structure, targetPath)
+    handleCreateStructure({ structure, targetPath })
   } catch (err) {
     window.showErrorMessage(parseError(err))
   }
 }
 
-function handleCreateStructure(selection: Structure, path: string) {
-  switch (selection) {
+function handleCreateStructure(params: CreateStructureParams) {
+  const { structure, targetPath } = params
+
+  switch (structure) {
     case Structure.API_ROUTE:
-      return createRoute(path)
+      return createRoute(targetPath)
     case Structure.CONTEXT:
-      return createContext(path)
+      return createContext(targetPath)
     case Structure.HOOK:
-      return createHook({ path, variant: HookVariant.DEFAULT })
+      return createHook({ path: targetPath, variant: HookVariant.DEFAULT })
     case Structure.COMPONENT:
-      return createComponent(path)
+      return createComponent(targetPath)
     case Structure.MODAL:
-      return createModal(path)
+      return createModal(targetPath)
     default:
       window.showErrorMessage('Select a valid option to continue')
   }
