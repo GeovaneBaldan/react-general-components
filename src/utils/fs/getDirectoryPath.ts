@@ -4,7 +4,7 @@ import { lstatSync } from 'fs'
 import { get, isNil } from 'lodash'
 
 // Prompts
-import { promptForTargetDirectory } from '../../prompts'
+import { pickTargetDirectoryPath } from '../../prompts'
 
 export async function getDirectoryPath(uri: Uri) {
   const isDirectory =
@@ -12,7 +12,7 @@ export async function getDirectoryPath(uri: Uri) {
 
   if (isDirectory) return uri.fsPath
 
-  const path = await promptForTargetDirectory()
+  const path = await pickTargetDirectoryPath()
   if (isNil(path)) throw Error('Please select a valid directory')
   else return path
 }

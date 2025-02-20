@@ -3,7 +3,7 @@ import { getHookComponentTemplate } from './hook'
 import { getDefaultComponentTemplate } from './default'
 
 // Types
-import { StructureVariant } from '../../types/structure'
+import { StructureVariant } from '../../types/variant'
 
 export function getComponentTemplate(name: string, type: StructureVariant) {
   if (type === StructureVariant.DEFAULT)

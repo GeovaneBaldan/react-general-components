@@ -2,15 +2,16 @@
 import { QuickPickOptions, window } from 'vscode'
 
 // Types
-import { StructureVariant } from '../types/structure'
+import { StructureVariant } from '../types/variant'
 
 const CONFIG: QuickPickOptions = {
-  placeHolder: 'Select the desired variant',
   title: 'Structure variant',
-  canPickMany: false
+  placeHolder: 'Select the desired variant',
+  canPickMany: false,
+  ignoreFocusOut: true
 }
 
-export function promptForStructureVariant() {
+export function pickStructureVariant(): Thenable<StructureVariant | undefined> {
   const menuItems = Object.values(StructureVariant)
   const selection = window.showQuickPick(menuItems, CONFIG)
 

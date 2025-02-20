@@ -9,7 +9,7 @@ import { getExportedFilesTemplate } from '../../../../templates/export'
 import { getHookModalTemplates } from '../../../../templates/modal/withHook'
 
 // Types
-import { HookVariant } from '../../../../types/structure'
+import { HookVariant } from '../../../../types/variant'
 
 export async function createHookFiles(
   name: string,

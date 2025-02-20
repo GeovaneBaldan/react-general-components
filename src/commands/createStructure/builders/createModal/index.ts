@@ -7,25 +7,25 @@ import { createModalFiles } from './createFiles'
 
 // Utils
 import {
-  promptForPlatform,
-  promptForStructureName,
-  promptForStructureVariant
+  pickPlatform,
+  pickStructureName,
+  pickStructureVariant
 } from '../../../../prompts'
 import { createDirectory } from '../../../../utils/fs'
 import { formatModalName, parseError } from '../../../../utils/functions'
 
 export async function createModal(path: string) {
-  const variant = await promptForStructureVariant()
+  const variant = await pickStructureVariant()
 
   if (!variant)
     return window.showErrorMessage('Select a valid option to continue')
 
-  const platform = await promptForPlatform()
+  const platform = await pickPlatform()
 
   if (!platform)
     return window.showErrorMessage('Select a valid option to continue')
 
-  const modalName = await promptForStructureName()
+  const modalName = await pickStructureName()
 
   if (!modalName)
     return window.showErrorMessage('Insert a valid name to continue')

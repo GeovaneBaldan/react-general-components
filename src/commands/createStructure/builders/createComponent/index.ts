@@ -7,25 +7,25 @@ import { createComponentFiles } from './createFiles'
 
 // Utils
 import {
-  promptForPlatform,
-  promptForStructureName,
-  promptForStructureVariant
+  pickPlatform,
+  pickStructureName,
+  pickStructureVariant
 } from '../../../../prompts'
 import { createDirectory } from '../../../../utils/fs'
 import { parseError } from '../../../../utils/functions'
 
 export async function createComponent(path: string) {
-  const variant = await promptForStructureVariant()
+  const variant = await pickStructureVariant()
 
   if (!variant)
     return window.showErrorMessage('Select a valid option to continue')
 
-  const platform = await promptForPlatform()
+  const platform = await pickPlatform()
 
   if (!platform)
     return window.showErrorMessage('Select a valid option to continue')
 
-  const componentName = await promptForStructureName()
+  const componentName = await pickStructureName()
 
   if (!componentName)
     return window.showErrorMessage('Insert a valid name to continue')

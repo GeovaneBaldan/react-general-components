@@ -2,7 +2,7 @@
 import { formatHookName, formatModalName } from '../../../utils/functions'
 
 // Types
-import { HookVariant } from '../../../types/structure'
+import { HookVariant } from '../../../types/variant'
 
 export function getHookModalTemplate(componentName: string) {
   const modalName = formatModalName(componentName)

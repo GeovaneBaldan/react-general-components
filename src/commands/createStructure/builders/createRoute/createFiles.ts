@@ -7,7 +7,7 @@ import { parseError } from '../../../../utils/functions'
 import { getRouteTemplate } from '../../../../templates/route'
 
 // Types
-import { ApiMethod } from '../../../../types/apiMethod'
+import { ApiMethod } from '../../../../types/api-method'
 
 export async function createRouteFiles(
   name: string,

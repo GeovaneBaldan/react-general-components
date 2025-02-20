@@ -14,7 +14,7 @@ import { getComponentTemplate } from '../../../../templates/component'
 
 // Types
 import { Platform } from '../../../../types/platform'
-import { HookVariant, StructureVariant } from '../../../../types/structure'
+import { HookVariant, StructureVariant } from '../../../../types/variant'
 
 interface IComponentFilesParams {
   name: string

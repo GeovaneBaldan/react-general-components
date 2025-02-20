@@ -2,7 +2,7 @@
 import { capitalize } from './capitalize'
 
 // Types
-import { HookVariant } from '../../types/structure'
+import { HookVariant } from '../../types/variant'
 
 export function formatHookName(name: string, variant?: HookVariant) {
   let hookName = name

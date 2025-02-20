@@ -2,7 +2,7 @@
 import { getFunctionTemplate } from './function'
 
 // Types
-import { ApiMethod } from '../../types/apiMethod'
+import { ApiMethod } from '../../types/api-method'
 import { getRouteRequestTemplate } from './request'
 import { getRouteResponseTemplate } from './response'
 

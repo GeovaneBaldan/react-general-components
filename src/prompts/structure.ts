@@ -5,12 +5,13 @@ import { QuickPickOptions, window } from 'vscode'
 import { Structure } from '../types/structure'
 
 const CONFIG: QuickPickOptions = {
-  placeHolder: 'Select the desired structure',
   title: 'Structure',
-  canPickMany: false
+  placeHolder: 'Select the desired structure',
+  canPickMany: false,
+  ignoreFocusOut: true
 }
 
-export function promptForStructureType() {
+export function pickStructure(): Thenable<Structure | undefined> {
   const menuItems = Object.values(Structure)
   const selection = window.showQuickPick(menuItems, CONFIG)
 

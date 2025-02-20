@@ -11,15 +11,16 @@ import {
 } from './builders'
 
 // Utils
+import { pickStructure } from '../../prompts'
 import { getDirectoryPath } from '../../utils/fs'
 import { parseError } from '../../utils/functions'
-import { promptForStructureType } from '../../prompts'
 
 // Types
-import { HookVariant, Structure } from '../../types/structure'
+import { Structure } from '../../types/structure'
+import { HookVariant } from '../../types/variant'
 
 export async function createStructure(uri: Uri) {
-  const structure = await promptForStructureType()
+  const structure = await pickStructure()
 
   if (!structure) return
 

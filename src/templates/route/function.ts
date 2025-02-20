@@ -2,7 +2,7 @@
 import { formatApiName } from '../../utils/functions'
 
 // Types
-import { ApiMethod } from '../../types/apiMethod'
+import { ApiMethod } from '../../types/api-method'
 
 export function getFunctionTemplate(name: string, method: ApiMethod) {
   const { functionName, paramsName, responseName } = formatApiName(name)

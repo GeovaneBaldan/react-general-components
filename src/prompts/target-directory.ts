@@ -10,7 +10,7 @@ const CONFIG: OpenDialogOptions = {
   canSelectFolders: true
 }
 
-export async function promptForTargetDirectory() {
+export async function pickTargetDirectoryPath(): Promise<string | undefined> {
   const uri = await window.showOpenDialog(CONFIG)
 
   if (isNil(uri) || isEmpty(uri)) return undefined

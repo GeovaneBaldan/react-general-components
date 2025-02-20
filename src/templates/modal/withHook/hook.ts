@@ -2,7 +2,7 @@
 import { formatHookName } from '../../../utils/functions'
 
 // Types
-import { HookVariant } from '../../../types/structure'
+import { HookVariant } from '../../../types/variant'
 
 export function getHookTemplate(componentName: string) {
   const { hookName, interfaceName } = formatHookName(

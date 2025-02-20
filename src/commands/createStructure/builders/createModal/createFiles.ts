@@ -13,7 +13,7 @@ import { getStyledTemplate } from '../../../../templates/styled'
 
 // Types
 import { Platform } from '../../../../types/platform'
-import { HookVariant, StructureVariant } from '../../../../types/structure'
+import { HookVariant, StructureVariant } from '../../../../types/variant'
 
 interface IModalFilesParams {
   name: string

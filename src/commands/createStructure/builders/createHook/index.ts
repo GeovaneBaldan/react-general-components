@@ -7,9 +7,11 @@ import { createHookFiles } from './createFiles'
 
 // Utils
 import { createDirectory } from '../../../../utils/fs'
-import { promptForStructureName } from '../../../../prompts'
+import { pickStructureName } from '../../../../prompts'
 import { formatHookName, parseError } from '../../../../utils/functions'
-import { HookVariant } from '../../../../types/structure'
+
+// Types
+import { HookVariant } from '../../../../types/variant'
 
 interface ICreateHookParams {
   path: string
@@ -22,7 +24,7 @@ export async function createHook(params: ICreateHookParams) {
   let inputName
 
   if (name) inputName = name
-  else inputName = await promptForStructureName()
+  else inputName = await pickStructureName()
 
   if (!inputName)
     return window.showErrorMessage('Insert a valid name to continue')
