@@ -1,21 +1,25 @@
-import type { ICommand } from './Command'
+import * as vscode from 'vscode'
+import type { Command } from './Command'
 
 export class CommandRegistry {
-  private commands = new Map<string, ICommand>()
+  private commands = new Map<string, Command>()
 
-  register(command: ICommand): void {
+  register(command: Command): void {
     this.commands.set(command.id, command)
   }
 
-  registerAll(commands: ICommand[]): void {
+  registerAll(commands: Command[]): void {
     commands.forEach(cmd => this.register(cmd))
   }
 
-  get(id: string): ICommand | undefined {
-    return this.commands.get(id)
-  }
+  bind(context: vscode.ExtensionContext) {
+    this.commands.forEach(command => {
+      const disposable = vscode.commands.registerCommand(
+        command.id,
+        (...args) => command.execute(...args)
+      )
 
-  getAllCommands(): ICommand[] {
-    return Array.from(this.commands.values())
+      context.subscriptions.push(disposable)
+    })
   }
 }

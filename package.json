@@ -19,6 +19,7 @@
     "vscode": "^1.105.0"
   },
   "categories": [
+    "Snippets",
     "Other"
   ],
   "activationEvents": [],
@@ -26,10 +27,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "general-components.helloWorld",
-        "title": "Hello World"
+        "command": "general-components.exportFiles",
+        "title": "RGC: Export files"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "general-components.exportFiles",
+          "group": "componentsGroup@1",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run compile",

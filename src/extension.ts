@@ -1,8 +1,12 @@
-import * as vscode from 'vscode'
+// External libraries
+import type * as vscode from 'vscode'
 
+// Help
 import { CommandRegistry } from './core/CommandRegistry'
-import { FileSystemHelper } from './utils/FileSystemHelper'
-import { ExportFilesCommand } from './commands/ExportFilesCommand'
+import { FileSystemHelper } from './helpers/file-system'
+
+// Commands
+import { ExportFilesCommand } from './commands/export-files'
 
 export function activate(context: vscode.ExtensionContext) {
   const registry = new CommandRegistry()
@@ -10,13 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   registry.registerAll([new ExportFilesCommand(fileSystem)])
 
-  registry.getAllCommands().forEach(command => {
-    const disposable = vscode.commands.registerCommand(command.id, (...args) =>
-      command.execute(...args)
-    )
-
-    context.subscriptions.push(disposable)
-  })
+  registry.bind(context)
 }
 
 export function deactivate() {}

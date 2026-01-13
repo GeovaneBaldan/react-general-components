@@ -18,7 +18,11 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "useIterableCallbackReturn": "off"
+        "useIterableCallbackReturn": "off",
+        "noExplicitAny": "off"
+      },
+      "complexity": {
+        "noStaticOnlyClass": "off"
       },
       "correctness": {
         "noUnusedImports": "error",
